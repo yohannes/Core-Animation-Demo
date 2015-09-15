@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.imageView = UIImageView(image: UIImage(named: "penguin"))
+        self.imageView.center = CGPointMake(512, 384)
+        self.view.addSubview(self.imageView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +23,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - IBOutlet Properties
 
+    @IBOutlet weak var tapButton: UIButton!
+    
+    // MARK: - IBAction Properties
+    
+    
+    @IBAction func tapButtonTapped(sender: UIButton) {
+        ++self.currentAnimationCounter
+        if self.currentAnimationCounter > 7 { self.currentAnimationCounter = 0 }
+    }
+    
+    // MARK: - Stored Properties
+    
+    var imageView: UIImageView!
+    var currentAnimationCounter = 0
 }
 
