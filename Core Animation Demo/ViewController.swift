@@ -31,6 +31,17 @@ class ViewController: UIViewController {
     
     
     @IBAction func tapButtonTapped(sender: UIButton) {
+        self.tapButton.hidden = true
+        
+        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions(), animations: { [unowned self] () -> Void in
+                switch self.currentAnimationCounter {
+                    case 0: break
+                    default: break
+                }
+            }) { [unowned self] (finished: Bool) -> Void in
+                self.tapButton.hidden = false
+        }
+        
         ++self.currentAnimationCounter
         if self.currentAnimationCounter > 7 { self.currentAnimationCounter = 0 }
     }
